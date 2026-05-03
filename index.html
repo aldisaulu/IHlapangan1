@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+        <script>
+        function backToMenu() {
+            window.location.href = '../dashboard/dashboard.html';
+        }
+        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Reset Otomatis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <button onclick="backToMenu()" style="position:fixed;top:18px;left:18px;padding:8px 18px;border-radius:8px;border:none;background:#185a9d;color:#fff;font-weight:600;cursor:pointer;z-index:100;">&larr; Kembali</button>
+
+    <div class="container">
+        <h2>Pengukuran Hari Ini</h2>
+        <input type="text" id="lokasiInput" placeholder="Isi Lokasi..." required class="lokasi-input">
+        <div class="input-group">
+            <form id="myForm">
+                <input type="text" id="myInput" placeholder="Ketik dBA..." required>
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+        
+        <p class="info-text">*klik tabel untuk edit angka</p>
+        
+        <table id="dataTable">
+            <tr>
+                <td id="cell1" class="editable-cell">-</td>
+                <td id="cell2" class="editable-cell">-</td>
+                <td id="cell3" class="editable-cell">-</td>
+                <td id="cell4" class="editable-cell">-</td>
+                <td id="cell5" class="editable-cell">-</td>
+            </tr>
+            <tr>
+                <td id="cell6" class="editable-cell">-</td>
+                <td id="cell7" class="editable-cell">-</td>
+                <td id="cell8" class="editable-cell">-</td>
+                <td id="cell9" class="editable-cell">-</td>
+                <td id="cell10" class="editable-cell">-</td>
+            </tr>
+        </table>
+        
+        <div id="resultDiv" class="result-div" style="display: none;">
+            <div class="result-container">
+                <div>
+                    <h3>Hasil Rata-rata</h3>
+                    <p id="averageResult"></p>
+                </div>
+                <div id="warningNote" class="warning-note" style="display: none;">
+                    Nilai kebisingan melebihi NAB
+                </div>
+            </div>
+            <button id="exportBtn" class="export-btn">📥 Export ke Excel</button>
+            <button id="resetHistoryBtn" class="reset-btn">🗑️ Reset History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
